@@ -1,102 +1,22 @@
-# Tarea X: Nombre de la tarea :school_satchel:
+# Entregable Tarea 3 :page_with_curl:
 
+## Alumno :bust_in_silhouette:: Matthias Fröhlich
 
-Un buen ```README.md``` puede marcar una gran diferencia en la facilidad con la que corregimos una tarea, y consecuentemente cómo funciona su programa, por lo en general, entre más ordenado y limpio sea este, mejor será 
+Pienso crear una estructura con nodos organizada en varios árboles :deciduous_tree:, con la ligera diferencia de que 
+existirán más de un nodo raíz, siendo estos todas las plantas generadoras. También se podría ver como que el nodo raíz es la 
+estación elevadora, asumiendo que solo existe una estación elevadora por árbol, y recorriendo primero los nodos que sean de 
+plantas generadoras para tener el total de potencia que le llega a la estacíon elevadora. 
 
-Para nuestra suerte, GitHub soporta el formato [MarkDown](https://es.wikipedia.org/wiki/Markdown), el cual permite utilizar una amplia variedad de estilos de texto, tanto para resaltar cosas importantes como para separar ideas o poner código de manera ordenada ([pueden ver casi todas las funcionalidades que incluye aquí](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet))
+Cada árbol se recorrería con el método **Depth Frist Search (DFS)**, es decir, se recorre cada rama hasta su fin antes de 
+recorrer otra. Cuando se llegue al fin de cada una, se calcula su demanda de consumo de la manera que se especifica en el 
+enunciado, tomando en cuenta las pérdidas por la resistencia, se crea una función que retorne el total de nodos padre que 
+posee ese nodo y a cada nodo padre se le agrega el valor de la demanda del nodo dividida por la cantidad de nodos padres más 
+la pérdida producto de sus respectivas resistencias. Una vez realizado esto se elimina el nodo límite de la rama. Para que 
+este proceso no afecte al árbol permanentemente, se recorre una copia del árbol, una representación. Una vez terminada este 
+iteración de DFS se repite hasta llegar al nodo raíz, al cual se le debería haber entregado el valor total de la demanda, y 
+definiendo la demanda como una property de cada nodo se pedirá que retorne el valor total.
 
-Un buen ```README.md``` no tiene por que ser muy extenso tampoco, hay que ser **concisos** (a menos que lo consideren necesario) pero **tampoco pueden** faltar cosas. Lo importante es que sea claro y limpio 
+Este método funcionaría porque, al ir eliminando cada nodo, uno se asegura de que no vuelva a ser recorrido y toda la 
+información relevante es traspasada a los nodos padres. Si se quiere saber el total de demanda es cosa de sumar la demanda de 
+cada árbol, que son la representación de cada sistema eléctrico independiente.
 
-**Dejar claro lo que NO pudieron implementar y lo que no funciona a la perfección. Esto puede sonar innecesario pero permite que el ayudante se enfoque en lo que sí podría subir su puntaje.**
-
-## Consideraciones generales :octocat:
-
-<Descripción de lo qué hace y qué **_no_** hace la tarea que entregaron junto
-con detalles de último minuto y consideraciones como por ejemplo cambiar algo
-en cierta línea del código o comentar una función>
-
-### Cosas implementadas y no implementadas :white_check_mark: :x:
-
-* Parte <X<sub>1</sub>>: Hecha completa
-* Parte <X<sub>2</sub>>: Me faltó hacer <insertar qué cosa faltó>
-    * Parte <X<sub>2.1</sub>>: Hecha completa <insertar qué cosa faltó>
-    * Parte <X<sub>2.2</sub>>: Me faltó hacer <insertar qué cosa faltó>
-
-    ...
-
-* Parte <X<sub>3</sub>>: Me faltó hacer <insertar qué cosa faltó>
-
-...
-
-* Parte <X<sub>n</sub>>: Me faltó hacer <insertar qué cosa faltó>
-
-## Ejecución :computer:
-El módulo principal de la tarea a ejecutar es  ```archivo.py```
-
-
-## Librerías :books:
-### Librerías externas utilizadas
-La lista de librerías externas que utilicé fue la siguiente:
-
-1. ```librería_1```-> ```función() / módulo```
-2. ```librería_2```-> ```función() / módulo``` (debe instalarse)
-
-...
-
-### Librerías propias
-Por otro lado, los módulos que fueron creados fueron los siguientes:
-
-1. ```librería_1```-> Contine a ```ClaseA```, ```ClaseB```, (ser general, tampoco es necesario especificar cada una)...
-2. ```librería_2```-> Hecha para <insertar descripción **breve** de lo que hace o qué contiene>
-
-...
-
-## Supuestos y consideraciones adicionales :thinking:
-Los supuestos que realicé durante la tarea son los siguientes:
-
-1. <Descripción/consideración 1 y justificación del por qué es válido/a> 
-2. <Descripción/consideración 2 y justificación del por qué es válido/a>
-
-...
-
-PD: <una última consideración (de ser necesaria) o comentario hecho anteriormente que se quiera **recalcar**>
-
-
--------
-
-
-
-**EXTRA:** si van a explicar qué hace especificamente un método, no lo coloquen en el README mismo. Pueden hacerlo directamente comentando el método en su archivo. Por ejemplo:
-
-```python
-class Corrector:
-
-    def __init__(self):
-          pass
-
-    # Este método coloca un 6 en las tareas que recibe
-    def corregir(self, tarea):
-        tarea.nota  = 6
-        return tarea
-```
-
-Si quieren ser más formales, pueden usar alguna convención de documentación. Google tiene la suya, Python tiene otra y hay muchas más. La de Python es la [PEP287, conocida como reST](https://www.python.org/dev/peps/pep-0287/). Lo más básico es documentar así:
-
-```python
-def funcion(argumento):
-    """
-    Mi función hace X con el argumento
-    """
-    return argumento_modificado
-```
-Lo importante es que expliquen qué hace la función y que si saben que alguna parte puede quedar complicada de entender o tienen alguna función mágica usen los comentarios/documentación para que el ayudante entienda sus intenciones.
-
-## Referencias de código externo :book:
-
-Para realizar mi tarea saqué código de:
-1. (link de código): este hace X cosa y está implementado en el archivo (nombre.py) en las líneas (número de líneas) y hace (explicación breve de que hace)
-
-
-
-## Descuentos
-La guía de descuentos se encuentra [link](https://github.com/IIC2233/syllabus/blob/master/Tareas/Descuentos.md).
